@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@aws-sdk/client-lambda':
+        specifier: ^3.659.0
+        version: 3.659.0
     devDependencies:
       '@types/aws-lambda':
         specifier: ^8.10.145
@@ -17,6 +21,9 @@ importers:
       serverless:
         specifier: ^4.4.3
         version: 4.4.3
+      serverless-iam-roles-per-function:
+        specifier: ^3.2.0
+        version: 3.2.0
       serverless-offline:
         specifier: ^14.3.2
         version: 14.3.2(serverless@4.4.3)
@@ -841,6 +848,9 @@ packages:
   lie@3.3.0:
     resolution: {integrity: sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==}
 
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+
   long-timeout@0.1.1:
     resolution: {integrity: sha512-BFRuQUqc7x2NWxfJBCyUrN8iYUYznzL9JROmRz1gZ6KlOIgmoD+njPVbb+VNn2nGMKggMsK79iUNErillsrx7w==}
 
@@ -944,6 +954,10 @@ packages:
 
   sax@1.4.1:
     resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==}
+
+  serverless-iam-roles-per-function@3.2.0:
+    resolution: {integrity: sha512-AXmxACHEUsDcFDcv8QNwDgn2L0brRJ7pz/phD3lFB/wQ3TtPJkorC+J7PxgFQbaWIQk15EIlU83BtKXeQoPTAg==}
+    engines: {node: '>=10'}
 
   serverless-offline@14.3.2:
     resolution: {integrity: sha512-+stI4DJ9YAy8JDU8f8rvsJUEw9X6sDyAmjPXt/1Z+pjWt278RZmpI77prz0X/O+4GUKAx4dBRGQmHxjMbT3vDg==}
@@ -2299,6 +2313,8 @@ snapshots:
     dependencies:
       immediate: 3.0.6
 
+  lodash@4.17.21: {}
+
   long-timeout@0.1.1: {}
 
   lru-cache@10.4.3: {}
@@ -2388,6 +2404,10 @@ snapshots:
   safe-buffer@5.1.2: {}
 
   sax@1.4.1: {}
+
+  serverless-iam-roles-per-function@3.2.0:
+    dependencies:
+      lodash: 4.17.21
 
   serverless-offline@14.3.2(serverless@4.4.3):
     dependencies:

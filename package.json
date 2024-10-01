@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "serverless package",
+    "dev": "serverless offline"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,11 @@
     "@types/aws-lambda": "^8.10.145",
     "@types/node": "^22.7.4",
     "serverless": "^4.4.3",
+    "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-offline": "^14.3.2",
     "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.659.0"
   }
 }

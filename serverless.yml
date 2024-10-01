@@ -6,6 +6,7 @@ service: serverless-v4-typescript
 
 plugins:
   - serverless-offline
+  - serverless-iam-roles-per-function
 
 build:
   esbuild:
@@ -29,3 +30,14 @@ functions:
       - httpApi:
           path: /hello
           method: GET
+    iamRoleStatementName: "hello-role"
+    iamRoleStatements:
+      - Sid: AllowLambdaInvocationAccess
+        Effect: "Allow"
+        Action:
+          - "lambda:InvokeFunction"
+        Resource:
+          - "*"
+
+  fun:
+    handler: functions/fun.handler
