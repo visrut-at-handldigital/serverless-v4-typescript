@@ -1,0 +1,7 @@
+npm init -y
+pnpm i -D @types/node typescript
+pnpm tsc --init
+pnpm i -D @types/aws-lambda serverless serverless-offline
+pnpm serverless offline
+pnpm serverless package
+pnpm serverless deploy

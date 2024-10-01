@@ -1,0 +1,31 @@
+org: visrutorg
+
+app: serverless-v4-typescript
+
+service: serverless-v4-typescript
+
+plugins:
+  - serverless-offline
+
+build:
+  esbuild:
+    bundle: true
+    minify: true
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  environment:
+    CUSTOM_VAR: ${env:CUSTOM_VAR}
+
+functions:
+  hello:
+    handler: functions/hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
