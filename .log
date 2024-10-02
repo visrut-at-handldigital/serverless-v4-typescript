@@ -7,3 +7,5 @@ pnpm serverless package
 pnpm serverless deploy
 pnpm i serverless-iam-roles-per-function
 pnpm sls remove --stage dev --region us-east-1
+pnpm i @aws-sdk/client-sqs
+pnpm i @aws-sdk/client-eventbridge

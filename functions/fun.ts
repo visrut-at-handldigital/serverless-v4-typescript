@@ -1,27 +1,20 @@
-import type { Context, APIGatewayProxyEventV2, Handler, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
+import type { Context, Handler, SQSEvent } from "aws-lambda";
 
-interface APIGatewayProxyHelloEventV2 extends Omit<APIGatewayProxyEventV2, "body"> {
-  unique_number: number;
-}
-
-export const handler: Handler = async (
-  _event: APIGatewayProxyHelloEventV2,
-  _context: Context
-): Promise<APIGatewayProxyStructuredResultV2> => {
+export const handler: Handler = async (_event: SQSEvent, _context: Context) => {
   console.log("I am having fun....");
 
-  const unique_number = _event.unique_number;
+  console.log("_events.Records.length: ", _event.Records.length);
 
-  console.log(`Btw got your number: ${unique_number}`);
+  for (const record of _event.Records) {
+    const messageBody = JSON.parse(record.body);
+    const unique_number = messageBody.unique_number;
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: `Number: ${unique_number}`,
-      environmentalVariables: {
-        CUSTOM_VAR: process.env.CUSTOM_VAR,
-        MONTHLY_REPORT_DATE: process.env.MONTHLY_REPORT_DATE,
-      },
-    }),
-  };
+    console.log(`Btw got your number: ${unique_number}`);
+
+    await waitFor(5000);
+
+    console.log(`your number is ${unique_number} | processed...`);
+  }
 };
+
+const waitFor = (ms: number) => new Promise((r) => setTimeout(r, ms));
