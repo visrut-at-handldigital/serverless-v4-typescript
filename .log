@@ -9,3 +9,8 @@ pnpm i serverless-iam-roles-per-function
 pnpm sls remove --stage dev --region us-east-1
 pnpm i @aws-sdk/client-sqs
 pnpm i @aws-sdk/client-eventbridge
+
+> https://stackoverflow.com/questions/42028897/can-i-limit-concurrent-invocations-of-an-aws-lambda
+> https://stackoverflow.com/questions/75863737/limit-lambda-concurrency-to-1
+> https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html
+> https://aws.amazon.com/blogs/architecture/rate-limiting-strategies-for-serverless-applications/
